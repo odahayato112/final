@@ -1,26 +1,17 @@
-<?php
-    const SERVER = 'mysql220.phy.lolipop.lan';
-    const DBNAME = 'LAA1517445-final';
-    const USER = 'LAA1517445';
-    const PASS = 'haya0112';
-    $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
-?>
-<?php
-echo '<table>';
-echo '<tr><th>料理ID</th><th>料理名</th><th>分類</th><th>旬の季節</th></tr>';
-$pdo=new PDO($connect, USER, PASS);
-$sql = $pdo->query('select * from cook');
-foreach($sql as $row){
-    $cook_id=$row['cook_id'];
-    echo '<tr>';
-    echo '<td>',$cook_id,'</td>';
-    echo '<td>';
-    echo $row['cook_mei'];
-    echo '</td>';
-
-    echo '<td>',$row['bunrui_mei'],'</td>';
-    echo '<td>',$row['season'],'</td>';
-    echo '</tr>';
-}
-echo '</table>';
-?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レストランレシピ</title>
+</head>
+<body>
+    <h1>レストランレシピ</h1>
+    <div style="display:inline-flex">
+<form action="itiran.php" method="post"><input type="submit" value="一覧">　</form>
+<form action="toroku-input.php" method="post"><input type="submit" value="登録">　</form>
+<form action="update.php" method="post"><input type="submit" value="更新">　</form>
+<form action="delete.php" method="post"><input type="submit" value="削除">　</form>
+</div>
+</body>
