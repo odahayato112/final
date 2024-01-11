@@ -15,14 +15,10 @@
 	<body>
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('insert into cook values(null,?,?,?)');
-    if (empty($_POST['cook_mei'])){
+    $sql=$pdo->prepare('insert into bunrui values(null,?)');
+    if (empty($_POST['bunrui_mei'])){
         echo '商品名を入力してください。';
-    }else if(empty($_POST['bunrui_id'])){
-        echo '分類を選択してください';
-    }else if(empty($_POST['season'])){
-        echo '季節を入力してください';
-    }else if ($sql->execute([$_POST['cook_mei'],$_POST['bunrui_id'],$_POST['season']])){
+    }else if ($sql->execute([$_POST['bunrui_mei']])){
         echo '追加に成功しました';
     }else{
         echo '追加に失敗しました';

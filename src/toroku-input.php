@@ -6,16 +6,36 @@
     $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
 ?>
 <h1>商品登録</h1>
-<a href="index.php">レストランレシピ画面へ戻る</a>
-<p>-------------------------------------------------------</p>
 <form action="toroku-output.php" method="post">
-        商品名　<input type="text" name="name"><br>
+        商品名　<input type="text" name="cook_mei"><br>
         
-        分類　<select name='bunrui'>
-            <option value='wa'>和食</option>
-            <option value='you'>洋食</option>
-            </select><br>
-        旬の季節　<input type="text" name="kisetu"><br>
+        <!--分類　<select name='bunrui_id'>
+            <option value='2'>和食</option>
+            <option value='1'>洋食</option>
+            </select>
+        -->
+        <?php
+        $pdo=new PDO($connect, USER, PASS);
+
+        echo'分類';
+        echo '<select name="bunrui_id">';
+        foreach($pdo->query('select * from bunrui')as $row){
+            echo '<option value="',$row['bunrui_id'],'">',$row['bunrui_mei'],'</option>';
+        }
+        echo '</select>';
+        ?>
+            <br>
+        旬の季節　<input type="text" name="season"><br>
         
         <button type="submit">追加</button>
+</form>
+<form action="bunrui-output.php" method="post">
+        <p>-------------------------------------------------------</p>
+        <h1>分類追加</h1>
+        分類名　<input type="text" name="bunrui_mei"><br>
+        <button type="submit">追加</button>
+        <p>-------------------------------------------------------</p>
+        <a href="index.php">レストランレシピ画面へ戻る</a>
+
+
 </form>
