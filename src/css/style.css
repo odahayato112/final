@@ -1,0 +1,14 @@
+body{
+    text-align:center;
+    position: relative; /* 今の位置を基準 */
+    top: 80px; /* 上から10px * /* 左から20px */
+}
+.table{
+    margin-left:485px;
+}
+.table1{
+    margin-left:400px;
+}
+.table2{
+    margin-left:520px;
+}

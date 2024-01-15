@@ -1,3 +1,11 @@
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>a</title>
+        <link rel="stylesheet" href="./css/style.css"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+	</head>
 <?php
     const SERVER = 'mysql220.phy.lolipop.lan';
     const DBNAME = 'LAA1517445-final';
@@ -6,6 +14,7 @@
     $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
 ?>
 <h1>商品一覧</h1>
+<div class="table2">
 <?php
 echo '<table border="1">';
 echo '<tr><th>料理ID</th><th>料理名</th><th>分類</th><th>旬の季節</th><th></th></tr>';
@@ -29,5 +38,6 @@ foreach($pdo->query('select * from cook, bunrui where cook.bunrui_id = bunrui.bu
 }
 echo '</table>';
 ?>
+</div>
 <p>-------------------------------------------------------</p>
 <a href="index.php">レストランレシピ画面へ戻る</a>
