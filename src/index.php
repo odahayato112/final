@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <title>レストランレシピ</title>
     <style>
-body {
-	background-image: url(./img/1.png);
+html {
+    margin:0;
+	background-image: url(./img/2.jpg);
+    background-size: cover; 
 	}
 </style>
 </head>
