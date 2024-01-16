@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="./css/style.css"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    
 	</head>
 <?php
     const SERVER = 'mysql220.phy.lolipop.lan';
@@ -34,8 +35,12 @@ foreach($pdo->query('select * from cook, bunrui where cook.bunrui_id = bunrui.bu
     echo '<td>';
     echo '<select name="bunrui_id">';
     foreach($pdo->query('select * from bunrui')as $bunruiRow){
+        if($row['bunrui_id'] == $bunruiRow['bunrui_id']){
+        echo '<option value="',$bunruiRow['bunrui_id'],'"selected>',$bunruiRow['bunrui_mei'],'</option>';
+        }else{
     echo '<option value="',$bunruiRow['bunrui_id'],'">',$bunruiRow['bunrui_mei'],'</option>';
     }
+}
     echo '</select>';
     echo '</td>';
     echo '<td>';
